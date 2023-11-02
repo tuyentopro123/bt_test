@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans 3", sans-serif;
+  background-color: #dfe5e7;
+  font-size: 14px;
+  color: #434343;
+  user-select: none;
+}
+
+h1,
+li {
+  color: #5f727f;
+}
+
+p {
+  color: #99a9b5;
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+}

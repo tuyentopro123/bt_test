@@ -1,0 +1,166 @@
+@import "_base";
+@import "_mixin";
+@import "_variables";
+
+.container {
+  @include flex(center, center);
+  flex-wrap: wrap;
+  padding: 90px;
+}
+
+.item {
+  position: relative;
+  margin-top: 150px;
+  width: 362px;
+  background-color: $white-color;
+  margin: 45px 16px;
+}
+
+%position-center {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%background-image-style {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@each $name, $color in $colors {
+  .btn.#{$name} {
+    border: $color 1px solid;
+    color: $color;
+  }
+
+  .btn.#{$name}:hover {
+    background-color: $color;
+    color: $white-color;
+  }
+  .price.#{$name} h1 {
+    color: $color;
+  }
+}
+
+/* price */
+.price {
+  @extend %position-center;
+  flex-direction: column;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  background-color: $white-color;
+  z-index: 100;
+  border-radius: 50%;
+  @include flex(center, center);
+  &.purple {
+    background-color: $dark-bg-color;
+  }
+  h1 {
+    font-weight: 600;
+  }
+  &.purple h1 {
+    color: $ligth-purple-color !important;
+  }
+}
+
+// * thumbnail */
+.thumbnail {
+  position: relative;
+  width: 100%;
+  height: 272px;
+  @extend %background-image-style;
+  @each $name, $topic in $topics {
+    &.#{$name} {
+      background-image: url($topic);
+    }
+  }
+}
+
+.new {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url("/images/newmark.png");
+  z-index: 200;
+  top: -3%;
+  left: -2%;
+  @extend %background-image-style;
+  @include flex(center, center);
+  span {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 9px !important;
+    font-family: "Montserrat", sans-serif !important;
+    color: $white-color;
+  }
+}
+
+.dark {
+  position: absolute;
+  background-color: $dark-color;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail-content {
+  @extend %position-center;
+  top: 50%;
+  font-family: "Montserrat", sans-serif !important;
+  span {
+    font-size: 36px;
+    color: $white-color;
+  }
+
+  p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+/* Content */
+.header {
+  text-align: center;
+  flex-direction: column;
+  padding: 15px 20px;
+  h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 2px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.list {
+  ul {
+    width: 100%;
+  }
+
+  li {
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    &:nth-child(odd) {
+      background-color: $text-color;
+    }
+  }
+}
+
+.button {
+  @include flex(center, center);
+  padding: 40px;
+}
+
+.btn {
+  padding: 10px 25px;
+  outline: none;
+  font-size: 19px;
+  background-color: transparent;
+  transition: all 0.1s linear;
+}
