@@ -2,14 +2,6 @@
   --primary-color: #2196f7;
 }
 
-.purple {
-  --primary-color: #6b136f;
-}
-
-.green {
-  --primary-color: #32ad1e;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +13,31 @@ body {
   background-color: #dfe5e7;
   font-size: 14px;
   color: #434343;
+  user-select: none;
+}
+
+.purple {
+  --primary-color: #6b136f;
+}
+
+.green {
+  --primary-color: #32ad1e;
+}
+
+.style {
+  border: var(--primary-color) 1px solid;
+  color: var(--primary-color);
+}
+
+.style:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -52,9 +69,6 @@ p {
 /* price */
 .price {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   width: 100px;
   height: 100px;
@@ -84,10 +98,13 @@ p {
   position: relative;
   width: 100%;
   height: 272px;
-  background-image: url("./images/ocean.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.thumbnail.ocean {
+  background-image: url("./images/ocean.png");
 }
 
 .thumbnail.moutain {
@@ -100,9 +117,6 @@ p {
 
 .new {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 50px;
   height: 50px;
   background-image: url("./images/newmark.png");
@@ -150,9 +164,7 @@ p {
 
 /* Content */
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   flex-direction: column;
   padding: 15px 20px;
 }
@@ -167,13 +179,6 @@ p {
   font-size: 14px;
 }
 
-.list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 .list ul {
   width: 100%;
   list-style: none;
@@ -186,28 +191,21 @@ p {
   font-weight: bold;
 }
 
-.list li.low {
+.list li:nth-child(odd) {
   background-color: #f3f5f7;
 }
 
 .button {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   padding: 40px;
 }
 
 .btn {
   padding: 10px 25px;
   outline: none;
-  border: var(--primary-color) 1px solid;
-  color: var(--primary-color);
   font-size: 19px;
   background-color: transparent;
   transition: all 0.1s linear;
-}
-
-.btn:hover {
-  background-color: var(--primary-color);
-  color: #ffffff;
 }
