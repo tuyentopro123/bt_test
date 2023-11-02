@@ -3,10 +3,8 @@
 @import "_variables";
 
 .container {
-  display: flex;
+  @include flex(center, center);
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   padding: 90px;
 }
 
@@ -14,15 +12,22 @@
   position: relative;
   margin-top: 150px;
   width: 362px;
-  background-color: #fff;
+  background-color: $white-color;
   margin: 45px 16px;
 }
 
-$colors: (
-  "blue": $blue-color,
-  "green": $green-color,
-  "purple": $purple-color,
-);
+%position-center {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%background-image-style {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 @each $name, $color in $colors {
   .btn.#{$name} {
     border: $color 1px solid;
@@ -31,7 +36,7 @@ $colors: (
 
   .btn.#{$name}:hover {
     background-color: $color;
-    color: #ffffff;
+    color: $white-color;
   }
   .price.#{$name} h1 {
     color: $color;
@@ -40,25 +45,23 @@ $colors: (
 
 /* price */
 .price {
-  position: absolute;
+  @extend %position-center;
   flex-direction: column;
   width: 100px;
   height: 100px;
   padding: 10px;
-  background-color: #ffffff;
+  background-color: $white-color;
   z-index: 100;
-  left: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   @include flex(center, center);
   &.purple {
-    background-color: #2b2d3d;
+    background-color: $dark-bg-color;
   }
   h1 {
     font-weight: 600;
   }
   &.purple h1 {
-    color: #d74498 !important;
+    color: $ligth-purple-color !important;
   }
 }
 
@@ -67,14 +70,7 @@ $colors: (
   position: relative;
   width: 100%;
   height: 272px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  $topics: (
-    "ocean": "../images/ocean.png",
-    "mountain": "../images/mountain.png",
-    "forest": "../images/forest.png",
-  );
+  @extend %background-image-style;
   @each $name, $topic in $topics {
     &.#{$name} {
       background-image: url($topic);
@@ -86,40 +82,36 @@ $colors: (
   position: absolute;
   width: 50px;
   height: 50px;
-  background-image: url("../images/newmark.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-image: url("/images/newmark.png");
   z-index: 200;
   top: -3%;
   left: -2%;
+  @extend %background-image-style;
   @include flex(center, center);
   span {
     text-transform: uppercase;
     font-weight: bolder;
     font-size: 9px !important;
     font-family: "Montserrat", sans-serif !important;
-    color: #ffffff;
+    color: $white-color;
   }
 }
 
 .dark {
   position: absolute;
-  background-color: #000;
+  background-color: $dark-color;
   opacity: 0.4;
   width: 100%;
   height: 100%;
 }
 
 .thumbnail-content {
-  position: absolute;
-  transform: translate(-50%, -50%);
+  @extend %position-center;
   top: 50%;
-  left: 50%;
   font-family: "Montserrat", sans-serif !important;
   span {
     font-size: 36px;
-    color: #ffffff;
+    color: $white-color;
   }
 
   p {
@@ -155,7 +147,7 @@ $colors: (
     font-size: 16px;
     font-weight: bold;
     &:nth-child(odd) {
-      background-color: #f3f5f7;
+      background-color: $text-color;
     }
   }
 }

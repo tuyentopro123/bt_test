@@ -1,3 +1,18 @@
+$white-color: #ffffff;
+$text-color: #f3f5f7;
+$dark-color: #000000;
+$dark-bg-color: #2b2d3d;
+$ligth-purple-color: #d74498;
 $blue-color: #2196f7;
 $purple-color: #6b136f;
 $green-color: #32ad1e;
+$colors: (
+  "blue": $blue-color,
+  "green": $green-color,
+  "purple": $purple-color,
+);
+$topics: (
+  "ocean": "/images/ocean.png",
+  "mountain": "/images/mountain.png",
+  "forest": "/images/forest.png",
+);
